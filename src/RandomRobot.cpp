@@ -20,19 +20,6 @@ void RandomRobot::displayPosition(const Maze& maze){
         }
         std::cout << std::endl;
     }
-
-    /*
-    for(int i=NUM_LINES-1; i>=0; i--){
-        for(int j=NUM_COLUMNS-1; j>=0; j--){
-            if(j == positionX && i == positionY){
-                std::cout << "R";
-            }else{ 
-                std::cout << maze.getPosition(i,j); 
-            }            
-        }
-        std::cout << std::endl;
-    }
-    */
     std::cout << "Position: " << positionX << ", " << positionY << std::endl;
 }
 
