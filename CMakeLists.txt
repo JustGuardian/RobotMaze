@@ -7,10 +7,22 @@ add_library(Maze
 	src/Maze.cpp
 )
 
+add_library(Robot
+	include/Robot.h
+	src/Robot.cpp
+)
+
+add_library(RandomRobot
+	include/RandomRobot.h
+	src/RandomRobot.cpp
+)
+
 add_executable(main
 	src/main.cpp
 )
 
 target_link_libraries(main
 	Maze
+    Robot
+    RandomRobot
 )

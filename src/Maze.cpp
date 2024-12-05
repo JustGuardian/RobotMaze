@@ -4,6 +4,16 @@
 
 #include "../include/Maze.h"
 
+void Maze::analyzeMaze(){
+    for(int i=0; i<NUM_LINES; i++){
+        for(int j=0; j<NUM_COLUMNS; j++){
+            if(matrix[i][j] == 'S'){
+                startPositionX = j;
+                startPositionY = i;
+            }
+        }
+    } 
+}
 bool Maze::checkLine(std::string stringToCheck){\
     if(stringToCheck.length() != NUM_COLUMNS) return false;
     for(char c : stringToCheck){
@@ -21,7 +31,7 @@ void Maze::readFromFile(std::string fileName){
     if(inputFile.is_open()){
         while(std::getline(inputFile, currentLine)){            
             if(checkLine(currentLine)){
-                std::cout<<currentLine<<std::endl;
+                //std::cout<<currentLine<<std::endl;
                 matrix.push_back(currentLine);
             }else{
                 std::cerr << "ERRORE carattere non valido: " << currentLine << std::endl;
@@ -32,8 +42,12 @@ void Maze::readFromFile(std::string fileName){
     inputFile.close();
 }
 
+char Maze::getPosition (int x, int y) const{
+    return matrix[y][x];
+}
 Maze::Maze(){}
 
 Maze::Maze(std::string fileName){
     readFromFile(fileName);
+    analyzeMaze();
 }
