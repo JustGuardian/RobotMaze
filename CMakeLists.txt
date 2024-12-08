@@ -17,6 +17,11 @@ add_library(RandomRobot
 	src/RandomRobot.cpp
 )
 
+add_library(RightHandRuleRobot
+	include/RightHandRuleRobot.h
+	src/RightHandRuleRobot.cpp
+)
+
 add_executable(main
 	src/main.cpp
 )
@@ -24,5 +29,6 @@ add_executable(main
 target_link_libraries(main
 	Maze
     Robot
-    RandomRobot
+	RandomRobot
+    RightHandRuleRobot
 )

@@ -1,3 +1,6 @@
+#ifndef ROBOT_H
+#define ROBOT_H
+
 #include "Maze.h"
 
 const char ROBOT_CHAR = 'R';
@@ -7,7 +10,7 @@ class Robot{
     int getPositionX() const;
     int getPositionY() const;
     int getMoves() const;
-    void displayPosition(const Maze&) const;
+    void displayPosition(const Maze&, bool printMoves=true) const;
 
     virtual void move(Maze&) = 0;
 
@@ -16,3 +19,4 @@ class Robot{
     int positionY;
     int moves;
 };
+#endif
