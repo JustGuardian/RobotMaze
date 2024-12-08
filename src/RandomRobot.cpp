@@ -4,27 +4,16 @@
 #include <cstdlib>
 #include <ctime>
 
+
+
 RandomRobot::RandomRobot(int x, int y){
     positionX = x;
     positionY = y;
-}
-
-void RandomRobot::displayPosition(const Maze& maze){
-    for(int i=0; i<NUM_LINES; i++){
-        for(int j=0; j<NUM_COLUMNS; j++){
-            if(j == positionX && i == positionY){
-                std::cout << "R";
-            }else{ 
-                std::cout << maze.getPosition(j,i); 
-            }            
-        }
-        std::cout << std::endl;
-    }
-    std::cout << "Position: " << positionX << ", " << positionY << std::endl;
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
 }
 
 void RandomRobot::move(Maze& maze){
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    
 
     bool moved = false;
 

@@ -25,14 +25,13 @@ int main(void){
     int moves = 0;
     auto startTime = std::chrono::high_resolution_clock::now(); 
     bot1.displayPosition(firstMaze);
-
+    
     while(firstMaze.isSolved() == false){
         bot1.move(firstMaze);
         moves++;
         
-        // Print the number of moves so far
         std::cout << "Moves: " << moves << std::endl;
-                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
         clearScreen();        
     }
 

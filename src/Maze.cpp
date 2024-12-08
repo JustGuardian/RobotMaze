@@ -14,6 +14,7 @@ void Maze::analyzeMaze(){
         }
     } 
 }
+
 bool Maze::checkLine(std::string stringToCheck){\
     if(stringToCheck.length() != NUM_COLUMNS) return false;
     for(char c : stringToCheck){
@@ -45,6 +46,7 @@ void Maze::readFromFile(std::string fileName){
 char Maze::getPosition (int x, int y) const{
     return matrix[y][x];
 }
+
 Maze::Maze(){}
 
 Maze::Maze(std::string fileName){
