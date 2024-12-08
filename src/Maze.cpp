@@ -4,18 +4,7 @@
 
 #include "../include/Maze.h"
 
-void Maze::analyzeMaze(){
-    for(int i=0; i<NUM_LINES; i++){
-        for(int j=0; j<NUM_COLUMNS; j++){
-            if(matrix[i][j] == 'S'){
-                startPositionX = j;
-                startPositionY = i;
-            }
-        }
-    } 
-}
-
-bool Maze::checkLine(std::string stringToCheck){\
+bool Maze::checkLine(std::string stringToCheck){
     if(stringToCheck.length() != NUM_COLUMNS) return false;
     for(char c : stringToCheck){
         if(c != EXIT_CHAR && c != START_CHAR && c != WALL_CHAR && c != PATH_CHAR){
@@ -27,13 +16,22 @@ bool Maze::checkLine(std::string stringToCheck){\
 
 void Maze::readFromFile(std::string fileName){
     std::ifstream inputFile(fileName);
-    std::string currentLine;
-
+    std::string currentLine;    
     if(inputFile.is_open()){
+        bool startNotFound = true;
         while(std::getline(inputFile, currentLine)){            
             if(checkLine(currentLine)){
-                //std::cout<<currentLine<<std::endl;
                 matrix.push_back(currentLine);
+                if(startNotFound){
+                    for(int i=0; i<currentLine.length(); i++){ //trova carattere di START
+                        if(currentLine[i] == START_CHAR){
+                            startPositionX = i;
+                            startPositionY = matrix.size()-1;
+                            startNotFound = false;
+                            break;
+                        }
+                    }
+                }
             }else{
                 std::cerr << "ERRORE carattere non valido: " << currentLine << std::endl;
             }            
@@ -47,9 +45,8 @@ char Maze::getPosition (int x, int y) const{
     return matrix[y][x];
 }
 
-Maze::Maze(){}
+Maze::Maze(){}  //da implementare generazione random del labirinto
 
 Maze::Maze(std::string fileName){
     readFromFile(fileName);
-    analyzeMaze();
 }

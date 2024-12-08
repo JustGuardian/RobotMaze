@@ -22,14 +22,14 @@ class Maze{
     int get_startPositionY() const {return startPositionY;};
     /*
     int get_endPositionX() {return endPositionX;};
-    int get_endPositionY(){return endPositionY;};
+    int get_endPositionY() {return endPositionY;};
     */
     void setSolved() {solved = true;};
     bool isSolved() const {return solved;};
     std::vector<std::string> getMaze() const {return matrix;};
+    
     private:
     bool solved = false;
-    void analyzeMaze();
     void readFromFile(std::string fileName);
     bool checkLine(std::string stringToCheck);
 

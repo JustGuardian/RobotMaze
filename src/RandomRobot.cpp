@@ -5,7 +5,6 @@
 #include <ctime>
 
 
-
 RandomRobot::RandomRobot(int x, int y){
     positionX = x;
     positionY = y;
@@ -13,10 +12,7 @@ RandomRobot::RandomRobot(int x, int y){
 }
 
 void RandomRobot::move(Maze& maze){
-    
-
     bool moved = false;
-
     while (!moved) {
         int randomMovement = std::rand() % 8 + 1;
         switch (randomMovement){
@@ -79,4 +75,3 @@ void RandomRobot::move(Maze& maze){
     }
     displayPosition(maze);
 }
-
