@@ -21,8 +21,8 @@ class Maze{
     int get_startPositionX() const {return startPositionX;};
     int get_startPositionY() const {return startPositionY;};
     /*
-    int get_endPositionX() {return endPositionX;};
-    int get_endPositionY() {return endPositionY;};
+    int get_endPositionX() const {return endPositionX;};
+    int get_endPositionY() const {return endPositionY;};
     */
     void setSolved() {solved = true;};
     bool isSolved() const {return solved;};
@@ -31,7 +31,7 @@ class Maze{
     private:
     bool solved = false;
     void readFromFile(std::string fileName);
-    bool checkLine(std::string stringToCheck);
+    bool checkLine(std::string stringToCheck) const;
 
     int startPositionX;
     int startPositionY;

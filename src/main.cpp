@@ -7,7 +7,7 @@
 
 using namespace std::chrono_literals;
 
-void clearScreen(){
+void clearOutput(){
     for(int i=0;i<=NUM_LINES+1;i++){
         printf("\33[2K\033[A"); //elimina intera riga corrente e muove il cursone su di una riga
     }
@@ -22,17 +22,14 @@ int main(void){
     cout << "START POSITION: " << firstMaze.get_startPositionX() << ", " << firstMaze.get_startPositionY() << endl;
 
     RandomRobot bot1(firstMaze.get_startPositionX(), firstMaze.get_startPositionY());
-    int moves = 0;
-    auto startTime = std::chrono::high_resolution_clock::now(); 
+    
+    auto startTime = std::chrono::high_resolution_clock::now();
     bot1.displayPosition(firstMaze);
     
     while(firstMaze.isSolved() == false){
         bot1.move(firstMaze);
-        moves++;
-        
-        std::cout << "Moves: " << moves << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(125));
-        clearScreen();        
+        clearOutput();
     }
 
     auto endTime = std::chrono::high_resolution_clock::now();
@@ -40,7 +37,7 @@ int main(void){
 
     bot1.displayPosition(firstMaze);
 
-    std::cout << "Total moves: " << moves << std::endl;
+    std::cout << "Total moves: " << bot1.getMoves() << std::endl;
     std::cout << "Total time: " << elapsedTime.count() << " seconds" << std::endl;
     return 0;
 }
