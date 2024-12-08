@@ -4,6 +4,16 @@
 #include <cstdlib>
 #include <ctime>
 
+int directions[8][2] = {
+        {1, 0},   // ➡
+        {1, -1},  // ↘
+        {0, -1},  // ⬇
+        {-1, -1}, // ↙
+        {-1, 0},  // ⬅
+        {-1, 1},  // ↖
+        {0, 1},   // ⬆
+        {1, 1}    // ↗
+    };
 
 RightHandRuleRobot::RightHandRuleRobot(int x, int y){
     positionX = x;
@@ -14,16 +24,7 @@ RightHandRuleRobot::RightHandRuleRobot(int x, int y){
 
 void RightHandRuleRobot::move(Maze& maze) {
     //direzioni
-    int directions[8][2] = {
-        {1, 0},   // ➡
-        {1, -1},  // ↘
-        {0, -1},  // ⬇
-        {-1, -1}, // ↙
-        {-1, 0},  // ⬅
-        {-1, 1},  // ↖
-        {0, 1},   // ⬆
-        {1, 1}    // ↗
-    };
+    
 
     int currentDirection = findInitialDirection(maze);
 
@@ -52,20 +53,8 @@ void RightHandRuleRobot::move(Maze& maze) {
     displayPosition(maze);
 }
 
-int RightHandRuleRobot::findInitialDirection(Maze& maze) {    
-    int directions[8][2] = {
-        {1, 0},   // ➡
-        {1, -1},  // ↘
-        {0, -1},  // ⬇
-        {-1, -1}, // ↙
-        {-1, 0},  // ⬅
-        {-1, 1},  // ↖
-        {0, 1},   // ⬆
-        {1, 1}    // ↗
-    };
-
-    
-    for (int i = 0; i < 8; ++i) {
+int RightHandRuleRobot::findInitialDirection(Maze& maze) {   
+        for (int i = 0; i < 8; ++i) {
         int newX = positionX + directions[i][0];
         int newY = positionY + directions[i][1];
 

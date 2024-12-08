@@ -11,6 +11,7 @@ class Robot{
     int getPositionY() const;
     int getMoves() const;
     void displayPosition(const Maze&, bool printMoves=true) const;
+    void solveMaze(Maze&);
 
     virtual void move(Maze&) = 0;
 

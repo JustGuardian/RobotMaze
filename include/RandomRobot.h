@@ -2,6 +2,6 @@
 
 class RandomRobot : public Robot{
     public:
-    RandomRobot(int x, int y);
+    RandomRobot(int, int);
     void move(Maze&);
 };

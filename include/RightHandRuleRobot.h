@@ -2,7 +2,7 @@
 
 class RightHandRuleRobot : public Robot{
     public:
-    RightHandRuleRobot(int x, int y);
+    RightHandRuleRobot(int, int);
     void move(Maze&);
-    int findInitialDirection(Maze& maze);
+    int findInitialDirection(Maze&);
 };
