@@ -12,21 +12,19 @@ int main(void) {
     Maze firstMaze("../test.txt");
 
     cout << "Scegli un tipo di robot:" << endl;
-    cout << "1. Right Hand Rule Robot" << endl;
+    cout << "1. Right Hand Rule Robot (default)" << endl;
     cout << "2. Random Robot" << endl;
     cout << "Scelta: ";
     
     int choice;
-    cin >> choice;    
+    cin >> choice;
+    if(choice != 1 && choice != 2) choice = 1;
     
     if (choice == 1) {
-
         cout << "\nRight Hand Rule Robot\n" << endl;
         RightHandRuleRobot bot(firstMaze.get_startPositionX(), firstMaze.get_startPositionY());
         bot.solveMaze(firstMaze);
-
     } else {
-
         cout << "\nRandom Robot\n" << endl;
         RandomRobot bot(firstMaze.get_startPositionX(), firstMaze.get_startPositionY());
         bot.solveMaze(firstMaze);
