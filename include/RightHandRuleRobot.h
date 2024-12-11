@@ -5,4 +5,6 @@ class RightHandRuleRobot : public Robot{
     RightHandRuleRobot(int, int);
     void move(Maze&);
     int findInitialDirection(Maze&);
+    private:
+    int previousDirection = -1;
 };
